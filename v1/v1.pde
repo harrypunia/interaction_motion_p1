@@ -11,10 +11,13 @@ void draw() {
   stroke(200, 100, 150);
   strokeWeight(10);
   translate(width/2, height/2);
-  for(int i = 0; i < 10; i++){
-    float x = r * sin(a);
-    float z = r * cos(a);
-    point(x, 0, z);
+  rotateX(mouseY /100.0);
+  for(int j = 0; j < 10; j++) { 
+    for(int i = 0; i < 10; i++){
+      float x = (sin(j) * 100) * sin(a + (PI * 2 * i/ 10));
+      float z = (sin(j) * 100) * cos(a + (PI * 2 * i/ 10));
+      point(x, j * 20, z);
+    }
   }
-  a+=0.5;
+  a+= PI / 100;
 }
